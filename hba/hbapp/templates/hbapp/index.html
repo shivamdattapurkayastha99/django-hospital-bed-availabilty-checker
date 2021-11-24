@@ -42,9 +42,9 @@
                     <tr>
                         <td>{{service.hospital}}</td>
                         <td>{{service.oxygen_beds_total}}</td>
-                        <td>{{service.oxygen_beds_available}}</td>
+                        <td class="{% if service.oxygen_beds_available %}bg-success{% else %} bg-danger{% endif %} ">{{service.oxygen_beds_available}}</td>
                         <td>{{service.oxygen_cylinder_total}}</td>
-                        <td>{{service.oxygen_cylinder_available}}</td>
+                        <td class="{% if service.oxygen_cylinder_available %}bg-success{% else %} bg-danger{% endif %} ">{{service.oxygen_cylinder_available}}</td>
                         <!-- <td>{{service.ventilator_total}}</td> -->
                         <td>{{service.ventilator_available}}</td>
                     </tr>
