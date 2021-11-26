@@ -14,11 +14,11 @@
 <body>
     <div class="container">
         <!-- {{services}} -->
-        <form action="" method="get">
+        <form action="" id="filterForm" method="get">
             <div>
                 <div class="form-group">
                     <label for="state">States</label>
-                    <select name="" id="state" class="form-control">
+                    <select name="state" id="state" class="form-control">
                     <option value=""><h1>Select State</h1> </option>
                     {% for state in states %}
                     <option value="{{state.pk}}">{{state}}</option>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="city">Cities</label>
-                    <select name="" id="city" class="form-control">
+                    <select name="city" id="city" class="form-control">
                     <option value=""><h1>Select City</h1> </option>
                     {% for city in cities %}
                     <option value="{{city.pk}}">{{city}}</option>
@@ -85,5 +85,31 @@
 
     </div>
 </body>
+<script>
+    window.onload=function(){
+        var state=document.getElementById('state')
+        var filterForm=document.getElementById('filterForm');
+        var city=document.getElementById('city')
+        // state.onchange=function(){
+        //     console.log('state changed');
+        //     filterForm.submit();
 
+
+        // }
+        // city.onchange=function(){
+        //     console.log('city changed');
+        //     filterForm.submit();
+
+
+        // }
+        var formSubmit=function(){
+            // console.log('city changed');
+            filterForm.submit();
+
+
+        }
+        state.onchange=formSubmit
+        city.onchange=formSubmit
+    }
+</script>
 </html>
