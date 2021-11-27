@@ -17,15 +17,16 @@ class Hospital(models.Model):
     address=models.CharField(max_length=200)
     def __str__(self) -> str:
         return self.name
-class Service(models.Model):
-    hospital=models.OneToOneField(Hospital,on_delete=models.CASCADE,primary_key=True)
-    oxygen_beds_total=models.IntegerField(default=0)
-    oxygen_beds_available=models.IntegerField(default=0)
-    oxygen_cylinder_total=models.IntegerField(default=0)
-    oxygen_cylinder_available=models.IntegerField(default=0)
-    ventilator_available=models.IntegerField(default=0)
+class Facility(models.Model):
+    # hospital=models.OneToOneField(Hospital,on_delete=models.CASCADE,primary_key=True)
+    # oxygen_beds_total=models.IntegerField(default=0)
+    # oxygen_beds_available=models.IntegerField(default=0)
+    # oxygen_cylinder_total=models.IntegerField(default=0)
+    # oxygen_cylinder_available=models.IntegerField(default=0)
+    # ventilator_available=models.IntegerField(default=0)
+    title=models.CharField(max_length=60,null=False,blank=False,default="")
     def __str__(self) -> str:
-        return self.hospital.name
+        return self.title
     
 
 

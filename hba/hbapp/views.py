@@ -1,14 +1,14 @@
 from django.shortcuts import render,HttpResponse
-from .models import Service,State,City
+from .models import Facility,State,City
 
 # Create your views here.
 def home(request):
-    services=Service.objects.all()
+    facilities=Facility.objects.all()
     cities=City.objects.all()
     states=State.objects.all()
 
     context={
-        'services':services,
+        'facilities':facilities,
         'cities':cities,
         'states':states
     }

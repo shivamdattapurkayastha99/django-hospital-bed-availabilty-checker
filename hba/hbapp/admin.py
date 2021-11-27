@@ -7,11 +7,10 @@ from django.dispatch import receiver
 # Register your models here.
 @receiver(post_save,sender=Hospital)
 def afterhospitalsave(signal, instance,**kwargs):
-    service=Service(hospital=instance)
-    service.save()
-class ServiceAdmin(admin.ModelAdmin):
-    model=Service
-    list_display=['hospital','oxygen_beds_total','oxygen_beds_available','oxygen_cylinder_total','oxygen_cylinder_available','ventilator_available']
+    pass
+class FacilityAdmin(admin.ModelAdmin):
+    model=Facility
+    list_display=['title']
 
 class HospitalAdmin(admin.ModelAdmin):
     model=Hospital
@@ -22,6 +21,6 @@ class HospitalAdmin(admin.ModelAdmin):
 admin.site.register(State)
 admin.site.register(City)
 admin.site.register(Hospital,HospitalAdmin)
-admin.site.register(Service,ServiceAdmin)
+admin.site.register(Facility,FacilityAdmin)
 
 
