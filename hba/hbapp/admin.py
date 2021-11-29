@@ -7,7 +7,13 @@ from django.dispatch import receiver
 # Register your models here.
 @receiver(post_save,sender=Hospital)
 def afterhospitalsave(signal, instance,**kwargs):
-    pass
+    facilities=Facility.objects.all()
+    for facility in facilities:
+        availability=Availability(hospital=instance,facility=facility)
+        availability.save()
+
+
+
 class FacilityAdmin(admin.ModelAdmin):
     model=Facility
     list_display=['title']
@@ -21,6 +27,7 @@ class CityAdmin(admin.ModelAdmin):
 class AvailabilityAdmin(admin.ModelAdmin):
     model=Availability
     list_display=['hospital','facility','total','available','updated_at']
+    list_editable=['total','available']
 
 admin.site.register(State)
 admin.site.register(City,CityAdmin)
