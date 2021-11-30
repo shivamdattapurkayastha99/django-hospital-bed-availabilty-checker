@@ -41,27 +41,46 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
+                        
+                            <th>
+                                Hospital
+                            </th>
+                        {% for facility in facilities %} 
+                        <th colspan="2" class="text-center">
+                        {{facility.title}}
+                    </th>
+                        {% endfor %}
+                        
+                </tr>
+                <tr>
                     <th>
-                        Hospital
+
+                    </th>
+                    {% for facility in facilities %}
+                    <th>
+                        <!-- Total Oxygen Beds -->
+                        Total
                     </th>
                     <th>
-                        Total Oxygen Beds
+                        <!-- Available Oxygen Beds -->
+                        Available
                     </th>
-                    <th>
-                        Available Oxygen Beds
-                    </th>
-                    <th>
-                        Total Oxygen Cylinder
-                    </th>
-                    <th>
-                        Available Oxygen Cylinder
-                    </th>
+                    {% endfor %}
+                    <!-- <th>
+                        Total Oxygen Cylinder -->
+                        <!-- Total -->
+                    <!-- </th> -->
+                    <!-- <th> -->
+                        <!-- Available Oxygen Cylinder -->
+                        <!-- Available -->
+                    <!-- </th> -->
                     <!-- <th>
                             Total Ventilator
                         </th> -->
-                    <th>
-                        Available Ventilator
-                    </th>
+                    <!-- <th> -->
+                        <!-- Available Ventilator -->
+                        <!-- Available -->
+                    <!-- </th> -->
                 </tr>
             </thead>
             <tbody>

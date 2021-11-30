@@ -3,7 +3,7 @@ from .models import Facility,State,City
 
 # Create your views here.
 def home(request):
-    facilities=Facility.objects.all()
+    facilities=Facility.objects.all().order_by('title')
     cities=City.objects.all()
     states=State.objects.all()
 
