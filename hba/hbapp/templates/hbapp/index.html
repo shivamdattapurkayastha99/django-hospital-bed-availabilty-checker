@@ -84,18 +84,15 @@
                 </tr>
             </thead>
             <tbody>
-                {% for service in services %}
+                {% for hospital in hospitals %}
                 <!-- <h1>{{service.hospital}}</h1> -->
                 <tr>
-                    <td>{{service.hospital}}</td>
-                    <td>{{service.oxygen_beds_total}}</td>
-                    <td class="{% get_table_class service.oxygen_beds_available %}">
-                        {{service.oxygen_beds_available}}</td>
-                    <td>{{service.oxygen_cylinder_total}}</td>
-                    <td class="{% get_table_class service.oxygen_cylinder_available %}">
-                        {{service.oxygen_cylinder_available}}</td>
-                    <!-- <td>{{service.ventilator_total}}</td> -->
-                    <td class="{% get_table_class service.ventilator_available %}">{{service.ventilator_available}}</td>
+                    <td>{{hospital.name}}</td>
+                    {% get_availabilities hospital as avl %}
+                    {% for avl in availabilities %}
+                    <td>{{avl.total}}</td>
+                    <td>{{avl.available}}</td>
+                    {% endfor %}
                 </tr>
 
                 {% endfor %}
