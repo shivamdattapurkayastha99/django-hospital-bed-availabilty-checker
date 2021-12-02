@@ -3,7 +3,7 @@ from .models import Availability, Facility, Hospital,State,City
 
 # Create your views here.
 def home(request):
-    facilities=Facility.objects.all().order_by('title')
+    facilities=Facility.objects.all().order_by('pk')
     cities=City.objects.all()
     states=State.objects.all()
     hospitals=Hospital.objects.all()

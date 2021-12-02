@@ -11,7 +11,12 @@ def afterhospitalsave(signal, instance,**kwargs):
     for facility in facilities:
         availability=Availability(hospital=instance,facility=facility)
         availability.save()
-
+@receiver(post_save,sender=Facility)
+def afterFacilitysave(signal, instance,**kwargs):
+    hospitals=Hospital.objects.all()
+    for hospital in hospitals:
+        availability=Availability(hospital=hospital,facility=instance)
+        availability.save()
 
 
 class FacilityAdmin(admin.ModelAdmin):
