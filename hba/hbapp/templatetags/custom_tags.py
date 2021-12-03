@@ -11,4 +11,9 @@ def get_table_class(value):
 @register.simple_tag
 def get_availabilities(hospital):
     return Availability.objects.filter(hospital=hospital).order_by('facility_id')
+@register.simple_tag
+def is_state_selected(selected_state,pk):
+    if selected_state==str(pk):
+        return 'selected'
+    
     

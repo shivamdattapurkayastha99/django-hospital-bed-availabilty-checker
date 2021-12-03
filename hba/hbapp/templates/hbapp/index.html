@@ -21,7 +21,7 @@
                     <select name="state" id="state" class="form-control">
                     <option value=""><h1>Select State</h1> </option>
                     {% for state in states %}
-                    <option value="{{state.pk}}">{{state}}</option>
+                    <option {% is_state_selected selected_state_id state.pk %}   value="{{state.pk}}">{{state}}</option>
                     {% endfor %}
                 </select>
                 </div>
