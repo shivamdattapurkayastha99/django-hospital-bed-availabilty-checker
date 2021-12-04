@@ -30,7 +30,7 @@
                     <select name="city" id="city" class="form-control">
                     <option value=""><h1>Select City</h1> </option>
                     {% for city in cities %}
-                    <option value="{{city.pk}}">{{city}}</option>
+                    <option {% is_city_selected selected_city_id city.pk %} value="{{city.pk}}">{{city}}</option>
                     {% endfor %}
                 </select>
                 </div>

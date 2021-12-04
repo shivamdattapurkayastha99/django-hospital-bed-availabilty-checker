@@ -15,5 +15,8 @@ def get_availabilities(hospital):
 def is_state_selected(selected_state,pk):
     if selected_state==str(pk):
         return 'selected'
-    
+@register.simple_tag
+def is_city_selected(selected_city_id,pk):
+    if selected_city_id==str(pk):
+        return 'selected'
     
