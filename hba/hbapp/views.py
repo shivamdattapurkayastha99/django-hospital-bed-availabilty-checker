@@ -6,13 +6,15 @@ def home(request):
     selected_state_id=request.GET.get('state')
     selected_city_id=request.GET.get('city')
     facilities=Facility.objects.all().order_by('pk')
+    hospitals=Hospital.objects.all()
     if selected_state_id:
         cities=City.objects.filter(state=selected_state_id)
     else:
         cities=City.objects.all()
-
+    if selected_city_id:
+        hospitals=hospitals.filter(city=City(pk=selected_city_id))
     states=State.objects.all()
-    hospitals=Hospital.objects.all()
+    
     availabilities=Availability.objects.all()
 
     context={
