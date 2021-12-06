@@ -21,7 +21,7 @@
                     <select name="state" id="state" class="form-control">
                     <option value=""><h1>Select State</h1> </option>
                     {% for state in states %}
-                    <option {% is_state_selected selected_state_id state.pk %}   value="{{state.pk}}">{{state}}</option>
+                    <option {% is_option_selected selected_state_id state.pk %}   value="{{state.pk}}">{{state}}</option>
                     {% endfor %}
                 </select>
                 </div>
@@ -30,7 +30,16 @@
                     <select name="city" id="city" class="form-control">
                     <option value=""><h1>Select City</h1> </option>
                     {% for city in cities %}
-                    <option {% is_city_selected selected_city_id city.pk %} value="{{city.pk}}">{{city}}</option>
+                    <option {% is_option_selected selected_city_id city.pk %} value="{{city.pk}}">{{city}}</option>
+                    {% endfor %}
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="city">Cities</label>
+                    <select name="facility" id="facility" class="form-control">
+                    <option value=""><h1>Select Facility</h1> </option>
+                    {% for facility in facilities %}
+                    <option {% is_option_selected selected_facility_id facility.pk %} value="{{facility.pk}}">{{facility.title}}</option>
                     {% endfor %}
                 </select>
                 </div>
@@ -106,6 +115,7 @@
         var state=document.getElementById('state')
         var filterForm=document.getElementById('filterForm');
         var city=document.getElementById('city')
+        var facility=document.getElementById('facility')
         // state.onchange=function(){
         //     console.log('state changed');
         //     filterForm.submit();
@@ -126,6 +136,8 @@
         }
         state.onchange=formSubmit
         city.onchange=formSubmit
+        facility.onchange=formSubmit
+
     }
 </script>
 </html>

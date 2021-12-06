@@ -20,3 +20,8 @@ def is_city_selected(selected_city_id,pk):
     if selected_city_id==str(pk):
         return 'selected'
     
+@register.simple_tag
+def is_option_selected(selected_option,pk):
+    if selected_option==str(pk):
+        return 'selected'
+    return ''

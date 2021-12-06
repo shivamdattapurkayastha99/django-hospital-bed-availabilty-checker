@@ -5,6 +5,7 @@ from .models import Availability, Facility, Hospital,State,City
 def home(request):
     selected_state_id=request.GET.get('state')
     selected_city_id=request.GET.get('city')
+    selected_facility_id=request.GET.get('facility')
     facilities=Facility.objects.all().order_by('pk')
     hospitals=Hospital.objects.all()
     if selected_state_id:
@@ -24,7 +25,8 @@ def home(request):
         'hospitals':hospitals,
         'availabilities':availabilities,
         'selected_state_id':selected_state_id,
-        'selected_city_id':selected_city_id
+        'selected_city_id':selected_city_id,
+        'selected_facility_id':selected_facility_id
     }
     return render(request,'hbapp/index.html',context=context)
     
