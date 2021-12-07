@@ -14,6 +14,20 @@ def home(request):
         cities=City.objects.all()
     if selected_city_id:
         hospitals=hospitals.filter(city=City(pk=selected_city_id))
+    if selected_facility_id:
+        availabilities=Availability.objects.all()
+        if selected_city_id:
+            availabilities=availabilities.filter(city=City(pk=selected_city_id))
+        availabilities=availabilities.filter(facility=Facility(pk=selected_facility_id),available__gt=0)
+
+        
+        hospitals=[]
+        for avl in availabilities:
+
+            hospitals.append(avl.hospital)
+
+
+
     states=State.objects.all()
     
     availabilities=Availability.objects.all()
