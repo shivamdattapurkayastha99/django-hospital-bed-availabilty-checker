@@ -96,7 +96,7 @@
                 {% for hospital in hospitals %}
                 <!-- <h1>{{service.hospital}}</h1> -->
                 <tr>
-                    <td>{{hospital.name}}</td>
+                    <td><a href="/hospital/{{hospital.id}}">{{hospital.name}}</a></td>
                     {% get_availabilities hospital as avl %}
                     {% for avl in availabilities %}
                     <td>{{avl.total}}</td>

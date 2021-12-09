@@ -1,7 +1,11 @@
 from django.shortcuts import render,HttpResponse
 from .models import Availability, Facility, Hospital,State,City
-
+from django.views import generic
 # Create your views here.
+
+class HospitalDetailView(generic.DetailView):
+    model=Hospital
+
 def home(request):
     selected_state_id=request.GET.get('state')
     selected_city_id=request.GET.get('city')
